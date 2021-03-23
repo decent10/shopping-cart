@@ -7,7 +7,14 @@ type PropTypes = {
   onAddToCart?: () => void;
 };
 
-const Card = ({ image, title, text, price, onAddToCart }: PropTypes) => {
+const Card = ({
+  image,
+  title,
+  text,
+  price,
+  onAddToCart,
+  onView,
+}: PropTypes) => {
   return (
     <div className="relative overflow-hidden flex flex-col card rounded-lg shadow-xl border border-gray-200 xs:mx-2">
       <img alt={title} className="block h-3/4  w-full" src={image} />
@@ -34,7 +41,10 @@ const Card = ({ image, title, text, price, onAddToCart }: PropTypes) => {
           </svg>
           {price}
         </span>
-        <button className="flex ml-auto text-indigo-700 border border-indigo-700 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded">
+        <button
+          onClick={onView}
+          className="flex ml-auto text-indigo-700 border border-indigo-700 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded"
+        >
           View Details
         </button>
         <button

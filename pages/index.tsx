@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import axios from 'axios';
 import { Product } from '../types';
@@ -13,10 +14,10 @@ type PropsType = {
 };
 
 export default function Home({ products }: PropsType) {
-  const { setProducts, addToCart } = useProduct();
-
+  const { addProducts, addToCart, selectProduct } = useProduct();
+  const router = useRouter();
   useEffect(() => {
-    setProducts(products);
+    addProducts(products);
   }, []);
   return (
     <div>
@@ -38,6 +39,10 @@ export default function Home({ products }: PropsType) {
               onAddToCart={() => {
                 console.log(product);
                 addToCart(product);
+              }}
+              onView={() => {
+                selectProduct(product);
+                router.push(`/product/${product.id.toString()}`);
               }}
             />
           ))}

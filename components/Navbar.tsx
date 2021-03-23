@@ -8,7 +8,7 @@ const Navbar = () => {
       <div className="container mx-auto p-4 flex flex-wrap items-center md:flex-no-wrap">
         <div className="mr-4 md:mr-8">
           <a href="/" rel="home">
-            <img src="./petsdeli-logo.svg" className="h-12" />
+            <img src="/petsdeli-logo.svg" className="h-12" />
           </a>
         </div>
         <div className="ml-auto md:hidden">
@@ -39,24 +39,6 @@ const Navbar = () => {
                   ) : null}
                 </a>
               </Link>
-            </li>
-            <li>
-              <a
-                className="block px-4 py-1 md:p-2 lg:px-4 text-purple-600"
-                href="#"
-                title="Active Link"
-              >
-                Active Link
-              </a>
-            </li>
-            <li>
-              <a
-                className="block px-4 py-1 md:p-2 lg:px-4"
-                href="#"
-                title="Link"
-              >
-                Link
-              </a>
             </li>
           </ul>
         </div>
