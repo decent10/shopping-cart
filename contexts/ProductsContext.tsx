@@ -1,18 +1,18 @@
-import React, { useContext, createContext, useState, useEffect } from "react";
-import {Product as ProductType} from "../types";
- type PropTypes = {
-   products:ProductType[];
-   addToCart:(product:ProductType)=> void;
-   loading:boolean;
-   setProducts:(products:ProductType[])=> void;
- }
+import React, { useContext, createContext, useState, useEffect } from 'react';
+import { Product as ProductType } from '../types';
+type PropTypes = {
+  products: ProductType[];
+  addToCart: (product: ProductType) => void;
+  loading: boolean;
+  cart: ProductType[];
+  setProducts: (products: ProductType[]) => void;
+};
 const ProductContext = createContext<PropTypes>({
-   products:[],
-    loading:true,
-    addToCart:(product:ProductType)=>{},
-    setProducts:(products:ProductType[])=>{ },
-
-
+  products: [],
+  cart: [],
+  loading: true,
+  addToCart: (product: ProductType) => {},
+  setProducts: (products: ProductType[]) => {},
 });
 
 export function useProduct() {
@@ -22,32 +22,25 @@ export function useProduct() {
 export function ProductProvider({ children }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const cart = [];
+  const [cart, setCart] = useState<ProductType[]>([]);
 
-  function addToCart(product:ProductType) {
-    cart.push(product);
+  function addToCart(product: ProductType) {
+    setCart([...cart, product]);
   }
 
-
-
   useEffect(() => {
-
-
-console.log(products);
-
+    console.log(products);
   }, [products]);
 
   const value = {
     products,
     loading,
+    cart,
     setProducts,
-    addToCart
-
+    addToCart,
   };
 
   return (
-    <ProductContext.Provider value={value}>
-      { children}
-    </ProductContext.Provider>
+    <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
   );
 }

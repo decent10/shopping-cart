@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Hero = () => (
-  <div className="lg:text-center">
+  <div className="lg:text-center my-10">
     <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
       The Pets Deli Difference
     </h2>
