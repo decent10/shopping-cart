@@ -17,10 +17,24 @@ const Card = ({ image, title, text, price, onAddToCart }: PropTypes) => {
         </h3>
       </div>
       <div className="flex p-2 md:p-4">
-        <span className="title-font font-medium text-2xl text-gray-900">
-          $58.00
+        <span className=" flex  text-indigo-400 items-center title-font font-normal text-xl text-gray-900">
+          <svg
+            className="h-6 mr-1 text-indigo-400"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M14.121 15.536c-1.171 1.952-3.07 1.952-4.242 0-1.172-1.953-1.172-5.119 0-7.072 1.171-1.952 3.07-1.952 4.242 0M8 10.5h4m-4 3h4m9-1.5a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          {price}
         </span>
-        <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+        <button className="flex ml-auto text-indigo-700 border border-indigo-700 bg-white border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 hover:text-white rounded">
           View Details
         </button>
         <button

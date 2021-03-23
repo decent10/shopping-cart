@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { GetStaticProps, GetStaticPropsContext } from 'next';
 import axios from 'axios';
-import Link from 'next/link';
 import { Product } from '../types';
 import Card from '../components/Card';
 import { useProduct } from '../contexts/ProductsContext';
@@ -35,6 +34,7 @@ export default function Home({ products }: PropsType) {
               title={product.metadata.accentuate.mainTitle}
               image={product.variants[0].image.src}
               text={product.metadata.accentuate.ribbonText1}
+              price={product.variants[0].priceV2.amount}
               onAddToCart={() => {
                 console.log(product);
                 addToCart(product);
